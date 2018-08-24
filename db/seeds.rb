@@ -129,6 +129,5 @@ exibit9 = Exhibit.new({
   "category" => "R&B/HipHop"
   })
 
-
 binding.pry
 nil
