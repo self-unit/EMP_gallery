@@ -51,15 +51,15 @@ end
 
 #SEARCH EXHIBITS BY CATEGORY
 get '/exhibits/category' do
-  erb( :category )
+  erb( :"exhibits/category" )
 end
 
 #SEARCH EXHIBITS BY ARTIST
 get '/exhibits/artist' do
-  erb( :artist )
+  erb( :"exhibits/artist" )
 end
 
 #SEARCH EXHIBITS BY DATE
 get '/exhibits/date' do
-  erb( :date )
+  erb( :"exhibits/date" )
 end

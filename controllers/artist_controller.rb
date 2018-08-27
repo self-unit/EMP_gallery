@@ -8,12 +8,12 @@ also_reload('../models/*')
 #INDEX OF ARTISTS
 get '/artists' do
   @artists = Artist.all
-  erb( :index )
+  erb( :"artists/index" )
 end
 
 #NEW ARTIST
 get '/artists/new' do
-  erb( :new )
+  erb( :"artists/new" )
 end
 
 #CREATE ARTIST
@@ -26,13 +26,13 @@ end
 #SHOW ARTIST
 get '/artists/:id' do
   @artist = Artist.find(params['id'].to_i)
-  erb( :show )
+  erb( :"artists/show" )
 end
 
 #EDIT ARTIST
 get '/artists/:id/edit' do
   @artist = Artist.find(params['id'].to_i)
-  erb( :edit )
+  erb( :"artists/edit" )
 end
 
 #UPDATE ARTIST
@@ -51,10 +51,10 @@ end
 
 #SEARCH ARTISTS BY NAME
 get '/artists/name' do
-  erb( :name )
+  erb( :"artists/name" )
 end
 
 #SEARCH ARTISTS BY EXHIBIT
 get '/artists/exhibit' do
-  erb( :exhibit )
+  erb( :"artists/exhibit" )
 end
