@@ -15,5 +15,6 @@ CREATE TABLE exhibits
   artist_id INT8 references artists(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL,
+  date_made DATE,
   link VARCHAR(255)
 );

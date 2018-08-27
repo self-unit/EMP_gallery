@@ -3,33 +3,34 @@ require_relative('../db/sql_runner.rb')
 class Exhibit
 
   attr_reader :id
-  attr_accessor :artist_id, :title, :category, :link
+  attr_accessor :artist_id, :title, :category, :date_made, :link
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @artist_id = options['artist_id'].to_i
     @title = options['title']
     @category = options['category']
+    @date_made = options['date_made']
     @link = options['link']
   end
 
   def save
     sql = "INSERT INTO exhibits
-    (artist_id, title, category, link)
+    (artist_id, title, category, date_made, link)
     VALUES
-    ($1, $2, $3, $4)
+    ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@artist_id, @title, @category, @link]
+    values = [@artist_id, @title, @category, @date_made, @link]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def edit
     sql = "UPDATE exhibits
-    SET (artist_id, title, category, link) =
-    ($1, $2, $3, $4)
-    WHERE id = ($5)"
-    values = [@artist_id, @title, @category, @link, @id]
+    SET (artist_id, title, category, date_made, link) =
+    ($1, $2, $3, $4, $5)
+    WHERE id = ($6)"
+    values = [@artist_id, @title, @category, @link, @date_made, @id]
     SqlRunner.run(sql, values)
   end
 

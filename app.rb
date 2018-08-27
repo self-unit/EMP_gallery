@@ -1,7 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
-require_relative('/controllers/visitor.rb')
-require_relative('/controllers/manager.rb')
+require_relative('/controllers/visitors_controller.rb')
+require_relative('/controllers/managers_controller.rb')
 
 get '/' do
   erb( :index )
