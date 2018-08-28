@@ -71,14 +71,6 @@ class Artist
     return Artist.new( returned_array.first )
   end
 
-  def self.find_by_exhibit(exhibit_id)
-    sql = "SELECT * FROM artists
-    WHERE exhibit_id = $1"
-    values = [exhibit_id]
-    returned_array = SqlRunner.run(sql, values)
-    return returned_array.map { |artist| Artist.new( artist ) }
-  end
-
   def self.delete_all
     sql = "DELETE FROM artists"
     values = []

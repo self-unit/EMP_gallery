@@ -32,6 +32,7 @@ end
 #EDIT EXHIBIT
 get '/exhibits/:id/edit' do
   @exhibit = Exhibit.find(params['id'].to_i)
+  @exhibits = Exhibit.all
   @artists = Artist.all
   erb( :"exhibits/edit" )
 end

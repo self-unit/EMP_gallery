@@ -78,7 +78,7 @@ exhibit1 = Exhibit.new({
   "title" => "Jaigantic (Galimatias Remix)",
   "category" => "Disney IndieDisco",
   "date_made" => "2014-10-06",
-  "link" => "https://www.youtube.com/embed/m_FhqLYf7jg?"
+  "link" => "https://www.youtube-nocookie.com/embed/m_FhqLYf7jg?"
   })
 
 exhibit1.save()
@@ -88,7 +88,7 @@ exhibit2 = Exhibit.new({
   "title" => "Métropole",
   "category" => "Electric Jazz",
   "date_made" => "2017-06-23",
-  "link" => "https://www.youtube.com/embed/coYGq3Ptxcw?"
+  "link" => "https://www.youtube-nocookie.com/embed/coYGq3Ptxcw?"
   })
 
 exhibit2.save()
@@ -148,18 +148,20 @@ exhibit8 = Exhibit.new({
   "title" => "Ceremony",
   "category" => "AquaCrunk",
   "date_made" => "2017-04-07",
-  "link" => "https://www.youtube.com/embed/2m2lEprDrfo?"
+  "link" => "https://www.youtube-nocookie.com/embed/2m2lEprDrfo?"
   })
 
 exhibit8.save()
 
-exibit9 = Exhibit.new({
+exhibit9 = Exhibit.new({
   "artist_id" => artist9.id,
   "title" => "Get Away",
   "category" => "R&B/HipHop",
   "date_made" => "2015-06-26",
   "link" => "https://www.youtube-nocookie.com/embed/z32HJ7PHnKY?"
   })
+
+exhibit9.save()
 
 binding.pry
 nil

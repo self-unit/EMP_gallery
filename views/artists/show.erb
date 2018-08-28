@@ -5,6 +5,15 @@
   <br>
   <li>Last Name: <%= @artist.last_name %></li>
   <br>
-  <li>Biography: <%= @artist.bio %></li>
+  <li>Biography: <p><%= @artist.bio %></li>
   <br>
+  <li>Exhibits: <% if @artist.exhibits.count > 0 %>
+    <% @artist.exhibits.each do |exhibit| %>
+    <p>
+      <%= exhibit.title %>
+    <% end %>
+    <% else %>
+    <p>none</p>
+    <% end %>
+  </li>
 </ul>
