@@ -13,6 +13,7 @@ end
 
 #NEW EXHIBIT
 get '/exhibits/new' do
+  @artists = Artist.all
   erb( :"exhibits/new" )
 end
 

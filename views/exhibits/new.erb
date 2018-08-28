@@ -1,0 +1,27 @@
+<h2>Please enter details for new exhibit</h2>
+<br>
+<form method="post" action="/exhibits">
+  <label for="title">Title:</label>
+  <input id="title" type="text" name="title" />
+
+
+  <label for="date_made">Date Released:</label>
+  <input id="date_made" type="date" name="date_made" />
+
+
+  <label for="category">Select a genre:</label>
+  <input id="category" type="text" name="category" />
+
+  <label for="artist">Select an artist:</label>
+  <select id="artist_id" name="artist_id" >
+    <% @artists.each do |artist| %>
+    <option value="<%= artist.id %>"><%= artist.full_name %></option>
+    <% end %>
+  </select>
+
+  <label for="Link">Link:</label>
+  <input id="link" type="text" name="link" />
+
+  <input type='submit' value="Create new exhibit"/>
+
+</form>

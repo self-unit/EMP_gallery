@@ -10,7 +10,7 @@
   <li>Exhibits: <% if @artist.exhibits.count > 0 %>
     <% @artist.exhibits.each do |exhibit| %>
     <p>
-      <%= exhibit.title %>
+      <a href="/exhibits/<%= exhibit.id %>"><%= exhibit.title %></a>
     <% end %>
     <% else %>
     <p>none</p>

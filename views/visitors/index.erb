@@ -1,0 +1,19 @@
+<h1>Visitor access</h1>
+<br>
+<h2>Artists</h2>
+<ul>
+  <% @artists.each do |artist| %>
+  <li> <%= artist.full_name %> <a href="/artists/<%= artist.id %>">Show</a>
+  </li>
+  <hr />
+  <% end %>
+</ul>
+
+<h2>Exhibits</h2>
+<ul>
+  <% @exhibits.each do |exhibit| %>
+  <li> Title: <%= exhibit.title %> <a href="/exhibits/<%= exhibit.id %>">Show</a>
+  </li>
+  <hr />
+  <% end %>
+</ul>

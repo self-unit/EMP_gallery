@@ -1,27 +1,31 @@
 <h1>Manager access</h1>
-
+<br>
 <h2>Artists</h2>
-<ul>
-  <% @artists.each do |artist| %>
-  <li> Name: <%= artist.full_name %> <a href="/artists/<%= artist.id %>">Show</a> <a href="/artists/<%= artist.id %>/edit">Edit</a>
-    <form method="post" action="/artists/<%= artist.id %>/delete">
-      <input id='hidden' type='hidden' name='_method' value='delete'/>
-      <input type='submit' value='Delete'/>
-    </form>
-  </li>
-  <hr />
-  <% end %>
-</ul>
+<p class="btn--wrapper">
+  <a class="btn btn--action" href="/artists/new">New Artist</a></p>
+  <ul>
+    <% @artists.each do |artist| %>
+    <li> <%= artist.full_name %> <a href="/artists/<%= artist.id %>">Show</a> <a href="/artists/<%= artist.id %>/edit">Edit</a>
+      <form method="post" action="/artists/<%= artist.id %>/delete">
+        <input id='hidden' type='hidden' name='_method' value='delete'/>
+        <input type='submit' value='Delete'/>
+      </form>
+    </li>
+    <hr />
+    <% end %>
+  </ul>
 
-<h2>Exhibits</h2>
-<ul>
-  <% @exhibits.each do |exhibit| %>
-  <li> Title: <%= exhibit.title %> <a href="/exhibits/<%= exhibit.id %>">Show</a> <a href="/exhibits/<%= exhibit.id %>/edit">Edit</a>
-    <form method="post" action="/exhibits/<%= exhibit.id %>/delete">
-      <input id='hidden' type='hidden' name='_method' value='delete'/>
-      <input type='submit' value='Delete'/>
-    </form>
-  </li>
-  <hr />
-  <% end %>
-</ul>
+  <h2>Exhibits</h2>
+  <p class="btn--wrapper">
+    <a class="btn btn--action" href="/exhibits/new">New Exhibit</a></p>
+    <ul>
+      <% @exhibits.each do |exhibit| %>
+      <li> <%= exhibit.title %> <a href="/exhibits/<%= exhibit.id %>">Show</a> <a href="/exhibits/<%= exhibit.id %>/edit">Edit</a>
+        <form method="post" action="/exhibits/<%= exhibit.id %>/delete">
+          <input id='hidden' type='hidden' name='_method' value='delete'/>
+          <input type='submit' value='Delete'/>
+        </form>
+      </li>
+      <hr />
+      <% end %>
+    </ul>

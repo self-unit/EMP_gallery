@@ -7,7 +7,7 @@
   <br>
   <li>Date Released: <%= @exhibit.date_made %></li>
   <br>
-  <li>By Artist: <%= @exhibit.artist.full_name %></li>
+  <li>By Artist: <a href="/artists/<%= @exhibit.artist_id %>"><%= @exhibit.artist.full_name %></a></li>
   <br>
   <li>Video: </li><iframe width="560" height="315" src="<%= @exhibit.link %>rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   <br>
