@@ -11,6 +11,10 @@ class Artist
     @bio = options['bio']
   end
 
+  def full_name
+    return "#{@first_name} #{@last_name}"
+  end
+
   def save
     sql = "INSERT INTO artists
     (first_name, last_name, bio)
@@ -36,7 +40,13 @@ class Artist
     WHERE artist_id = $1"
     values = [@id]
     returned_array = SqlRunner.run(sql, values)
-    return returned_array.map{ |title| Exhibit.new( title ) }
+    return returned_array.map{ |exhibit| Exhibit.new( exhibit ) }
+  end
+
+  def exhibit_names
+    objects_array = self.exhibits
+    titles = objects_array.map{ |exhibit| exhibit.title }
+    return titles
   end
 
   def delete
@@ -49,6 +59,22 @@ class Artist
   def self.all
     sql = "SELECT * FROM artists"
     values = []
+    returned_array = SqlRunner.run(sql, values)
+    return returned_array.map { |artist| Artist.new( artist ) }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM artists
+    WHERE id = $1"
+    values = [id]
+    returned_array = SqlRunner.run(sql, values)
+    return Artist.new( returned_array.first )
+  end
+
+  def self.find_by_exhibit(exhibit_id)
+    sql = "SELECT * FROM artists
+    WHERE exhibit_id = $1"
+    values = [exhibit_id]
     returned_array = SqlRunner.run(sql, values)
     return returned_array.map { |artist| Artist.new( artist ) }
   end

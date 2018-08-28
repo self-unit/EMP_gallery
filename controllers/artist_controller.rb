@@ -20,7 +20,7 @@ end
 post '/artists' do
   create_artist = Artist.new(params)
   create_artist.save()
-  redirect to '/artists'
+  redirect to '/managers'
 end
 
 #SHOW ARTIST
@@ -32,21 +32,22 @@ end
 #EDIT ARTIST
 get '/artists/:id/edit' do
   @artist = Artist.find(params['id'].to_i)
+  @exhibits = Exhibit.all
   erb( :"artists/edit" )
 end
 
 #UPDATE ARTIST
 post '/artists/:id' do
   update_artist = Artist.new(params)
-  update_artist.update()
-  redirect to '/artists'
+  update_artist.edit()
+  redirect to '/managers'
 end
 
 #DELETE ARTIST
 delete '/artists/:id/delete' do
   delete_artist = Artist.find(params['id'].to_i)
   delete_artist.delete()
-  redirect to '/artists'
+  redirect to '/managers'
 end
 
 #SEARCH ARTISTS BY NAME

@@ -1,0 +1,16 @@
+<br>
+<form method="post" action="/artists/<%= @artist.id %>">
+  <label for="first-name">First Name:</label>
+  <input id="first-name" type="text" name="first_name" value="<%= @artist.first_name %>" />
+
+
+  <label for="last-name">Last Name:</label>
+  <input id="last-name" type="text" name="last_name" value="<%= @artist.last_name %>"/>
+
+
+  <label for="input-biography">Write a biography:</label>
+  <input id="input-biography" type="text" name="bio" value="<%= @artist.bio %>"/>
+
+  <input type='submit' value="Amend artist details"/>
+
+</form>

@@ -78,7 +78,7 @@ exhibit1 = Exhibit.new({
   "title" => "Jaigantic (Galimatias Remix)",
   "category" => "Disney IndieDisco",
   "date_made" => "2014-10-06",
-  "link" => "https://www.youtube.com/watch?v=m_FhqLYf7jg"
+  "link" => "https://www.youtube.com/embed/m_FhqLYf7jg?"
   })
 
 exhibit1.save()
@@ -88,7 +88,7 @@ exhibit2 = Exhibit.new({
   "title" => "Métropole",
   "category" => "Electric Jazz",
   "date_made" => "2017-06-23",
-  "link" => "https://www.youtube.com/watch?v=coYGq3Ptxcw"
+  "link" => "https://www.youtube.com/embed/coYGq3Ptxcw?"
   })
 
 exhibit2.save()
@@ -98,7 +98,7 @@ exhibit3 = Exhibit.new({
   "title" => "Can't Live Without Your Love",
   "category" => "Funk",
   "date_made" => "2013-09-06",
-  "link" => "https://www.youtube.com/watch?v=KGcPphVHuU0"
+  "link" => "https://www.youtube-nocookie.com/embed/KGcPphVHuU0?"
   })
 
 exhibit3.save()
@@ -108,7 +108,7 @@ exhibit4 = Exhibit.new({
   "title" => "Foley Room",
   "category" => "Found Sound/Footwork",
   "date_made" => "2007-03-05",
-  "link" => "https://www.youtube.com/watch?v=4LZWaMEFUR4"
+  "link" => "https://www.youtube-nocookie.com/embed/4LZWaMEFUR4?"
   })
 
 exhibit4.save()
@@ -118,7 +118,7 @@ exhibit5 = Exhibit.new({
   "title" => "Come On You Slags",
   "category" => "Electronic/IDM",
   "date_made" => "1995-04-24",
-  "link" => "https://www.youtube.com/watch?v=wbJq2aANCyQ"
+  "link" => "https://www.youtube-nocookie.com/embed/wbJq2aANCyQ?"
   })
 
 exhibit5.save()
@@ -128,7 +128,7 @@ exhibit6 = Exhibit.new({
   "title" => "plyPhon",
   "category" => "Algorithmic/IDM",
   "date_made" => "2008-01-29",
-  "link" => "https://www.youtube.com/watch?v=acuwRHIWL_o"
+  "link" => "https://www.youtube-nocookie.com/embed/acuwRHIWL_o?"
   })
 
 exhibit6.save()
@@ -138,7 +138,7 @@ exhibit7 = Exhibit.new({
   "title" => "If This Is Love",
   "category" => "Electric Soul",
   "date_made" => "2016-10-13",
-  "link" => "https://www.youtube.com/watch?v=glowhhXwNeQ"
+  "link" => "https://www.youtube-nocookie.com/embed/glowhhXwNeQ?"
   })
 
 exhibit7.save()
@@ -148,7 +148,7 @@ exhibit8 = Exhibit.new({
   "title" => "Ceremony",
   "category" => "AquaCrunk",
   "date_made" => "2017-04-07",
-  "link" => "https://youtu.be/2m2lEprDrfo?t=26s"
+  "link" => "https://www.youtube.com/embed/2m2lEprDrfo?"
   })
 
 exhibit8.save()
@@ -158,7 +158,7 @@ exibit9 = Exhibit.new({
   "title" => "Get Away",
   "category" => "R&B/HipHop",
   "date_made" => "2015-06-26",
-  "link" => "https://youtu.be/z32HJ7PHnKY?t=7s"
+  "link" => "https://www.youtube-nocookie.com/embed/z32HJ7PHnKY?"
   })
 
 binding.pry

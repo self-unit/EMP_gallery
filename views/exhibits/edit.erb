@@ -1,0 +1,40 @@
+<br>
+<form method="post" action="/exhibits/<%= @exhibit.id %>">
+  <label for="title">Title:</label>
+  <input id="title" type="text" name="title" value="<%= @exhibit.title %>" />
+
+
+  <label for="date_made">Date Released:</label>
+  <input id="date_made" type="date" name="date_made" value="<%= @exhibit.date_made %>"/>
+
+
+  <label for="category">Select a genre:</label>
+  <select id="category" name="category" value="<%= @exhibit.category %>">
+    <option value="Electronica">Electronica</option>
+    <option value="R&B">R&B</option>
+    <option value="Rock">Rock</option>
+    <option value="Pop">Pop</option>
+    <option value="Soundtrack">Soundtrack</option>
+    <option value="Hip Hop">Hip Hop</option>
+    <option value="Country">Country</option>
+    <option value="Funk">Funk</option>
+    <option value="Blues">Blues</option>
+    <option value="Jazz">Jazz</option>
+  </select>
+
+  <label for="artist">Select an artist:</label>
+  <select id="artist" name="artist" value="<%= @exhibit.artist_id %>">
+    <option value="">
+      <% @artists.each { %>
+      <option value ="<%= |artist| artist.id } %>">
+      <% @artists.each { %>
+      <%= |artist| artist.full_name } %></option>
+    </select>
+
+
+  <label for="Link">Link:</label>
+  <input id="link" type="text" name="link" value="<%= @exhibit.link %>"/>
+
+  <input type='submit' value="Amend exhibition details"/>
+
+</form>

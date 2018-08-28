@@ -34,12 +34,18 @@ class Exhibit
     SqlRunner.run(sql, values)
   end
 
-  def artist
+  def artists
     sql = "SELECT * FROM artists
     WHERE id = $1"
     values = [@artist_id]
     returned_array = SqlRunner.run(sql, values)
     return returned_array.map{ |artist| Artist.new( artist )}
+  end
+
+  def artist_names
+    objects_array = self.artists
+    names = objects_array.map{ |artist| artist.full_name }
+    return Artist.new( names.first )
   end
 
   def delete
@@ -52,6 +58,38 @@ class Exhibit
   def self.all
     sql = "SELECT * FROM exhibits"
     values = []
+    returned_array = SqlRunner.run(sql, values)
+    return returned_array.map { |exhibit| Exhibit.new( exhibit ) }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM exhibits
+    WHERE id = $1"
+    values = [id]
+    returned_array = SqlRunner.run(sql, values)
+    return Exhibit.new( returned_array.first )
+  end
+
+  def self.find_by_category(category)
+    sql = "SELECT * FROM exhibits
+    WHERE category = $1"
+    values = [category]
+    returned_array = SqlRunner.run(sql, values)
+    return returned_array.map { |exhibit| Exhibit.new( exhibit ) }
+  end
+
+  def self.find_by_artist(artist_id)
+    sql = "SELECT * FROM exhibits
+    WHERE artist_id = $1"
+    values = [artist_id]
+    returned_array = SqlRunner.run(sql, values)
+    return returned_array.map { |exhibit| Exhibit.new( exhibit ) }
+  end
+
+  def self.find_by_date(date_made)
+    sql = "SELECT * FROM exhibits
+    WHERE date_made = $1"
+    values = [date_made]
     returned_array = SqlRunner.run(sql, values)
     return returned_array.map { |exhibit| Exhibit.new( exhibit ) }
   end

@@ -3,9 +3,12 @@
 <h2>Artists</h2>
 <ul>
   <% @artists.each do |artist| %>
-  <li> Name: <%= artist.full_name %></li>
-  <p><%= artist.bio %></p>
-  <p><a href="/artists/<%= artist.id %>/edit">Edit</a></p>
+  <li> Name: <%= artist.full_name %> <a href="/artists/<%= artist.id %>">Show</a> <a href="/artists/<%= artist.id %>/edit">Edit</a>
+    <form method="post" action="/artists/<%= artist.id %>/delete">
+      <input id='hidden' type='hidden' name='_method' value='delete'/>
+      <input type='submit' value='Delete'/>
+    </form>
+  </li>
   <hr />
   <% end %>
 </ul>
@@ -13,11 +16,12 @@
 <h2>Exhibits</h2>
 <ul>
   <% @exhibits.each do |exhibit| %>
-  <li> Title: <%= exhibit.title %></li>
-  <p>Genre: <%= exhibit.category %></p>
-  <p>Date released: <%= exhibit.date_made %></p>
-  <p>Created by: <%= exhibit.FINDBYID %></p>
-  <p><a href="/artists/<%= artist.id %>/edit">Edit</a></p>
+  <li> Title: <%= exhibit.title %> <a href="/exhibits/<%= exhibit.id %>">Show</a> <a href="/exhibits/<%= exhibit.id %>/edit">Edit</a>
+    <form method="post" action="/exhibits/<%= exhibit.id %>/delete">
+      <input id='hidden' type='hidden' name='_method' value='delete'/>
+      <input type='submit' value='Delete'/>
+    </form>
+  </li>
   <hr />
   <% end %>
 </ul>
