@@ -1,0 +1,23 @@
+<h1>Manager access</h1>
+
+<h2>Artists</h2>
+<ul>
+  <% @artists.each do |artist| %>
+  <li> Name: <%= artist.full_name %></li>
+  <p><%= artist.bio %></p>
+  <p><a href="/artists/<%= artist.id %>/edit">Edit</a></p>
+  <hr />
+  <% end %>
+</ul>
+
+<h2>Exhibits</h2>
+<ul>
+  <% @exhibits.each do |exhibit| %>
+  <li> Title: <%= exhibit.title %></li>
+  <p>Genre: <%= exhibit.category %></p>
+  <p>Date released: <%= exhibit.date_made %></p>
+  <p>Created by: <%= exhibit.FINDBYID %></p>
+  <p><a href="/artists/<%= artist.id %>/edit">Edit</a></p>
+  <hr />
+  <% end %>
+</ul>

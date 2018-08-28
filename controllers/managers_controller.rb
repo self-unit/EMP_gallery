@@ -7,5 +7,7 @@ also_reload('../models/*')
 
 #HOME
 get '/managers' do
+  @artists = Artist.all
+  @exhibits = Exhibit.all
   erb( :"managers/index" )
 end

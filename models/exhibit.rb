@@ -34,6 +34,14 @@ class Exhibit
     SqlRunner.run(sql, values)
   end
 
+  def artist
+    sql = "SELECT * FROM artists
+    WHERE id = $1"
+    values = [@artist_id]
+    returned_array = SqlRunner.run(sql, values)
+    return returned_array.map{ |artist| Artist.new( artist )}
+  end
+
   def delete
     sql = "DELETE FROM exhibits
     WHERE id = $1"
