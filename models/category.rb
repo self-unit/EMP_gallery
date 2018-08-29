@@ -1,43 +1,37 @@
 require_relative('../db/sql_runner.rb')
 
-class Artist
+class Category
   attr_reader :id
-  attr_accessor :first_name, :last_name, :bio
+  attr_accessor :name
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
-    @first_name = options['first_name']
-    @last_name = options['last_name'] if options['last_name']
-    @bio = options['bio']
-  end
-
-  def full_name
-    return "#{@first_name} #{@last_name}"
+    @name = options['name']
   end
 
   def save
-    sql = "INSERT INTO artists
-    (first_name, last_name, bio)
+    sql = "INSERT INTO categories
+    (name)
     VALUES
-    ($1, $2, $3)
+    ($1)
     RETURNING id"
-    values = [@first_name, @last_name, @bio]
+    values = [@name]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def edit
-    sql = "UPDATE artists
-    SET (first_name, last_name, bio) =
-    ($1, $2, $3)
-    WHERE id = $4"
-    values = [@first_name, @last_name, @bio, @id]
+    sql = "UPDATE categories
+    SET (name) =
+    ROW($1)
+    WHERE id = $2"
+    values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 
   def exhibits
     sql = "SELECT * FROM exhibits
-    WHERE artist_id = $1"
+    WHERE category_id = $1"
     values = [@id]
     returned_array = SqlRunner.run(sql, values)
     return returned_array.map{ |exhibit| Exhibit.new( exhibit ) }
@@ -50,29 +44,29 @@ class Artist
   end
 
   def delete
-    sql = "DELETE FROM artists
+    sql = "DELETE FROM categories
     WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def self.all
-    sql = "SELECT * FROM artists"
+    sql = "SELECT * FROM categories"
     values = []
     returned_array = SqlRunner.run(sql, values)
-    return returned_array.map { |artist| Artist.new( artist ) }
+    return returned_array.map { |category| Category.new( category ) }
   end
 
   def self.find(id)
-    sql = "SELECT * FROM artists
+    sql = "SELECT * FROM categories
     WHERE id = $1"
     values = [id]
     returned_array = SqlRunner.run(sql, values)
-    return returned_array.map{ |artist| Artist.new( artist ) }
+    return returned_array.map { |category| Category.new( category ) }
   end
 
   def self.delete_all
-    sql = "DELETE FROM artists"
+    sql = "DELETE FROM categories"
     values = []
     SqlRunner.run(sql, values)
   end

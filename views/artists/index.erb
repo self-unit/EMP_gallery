@@ -1,0 +1,41 @@
+<h2><a href="/artists">Artists</a></h2>
+<h3>Filter by exhibits</h3>
+<form method="get" action="/artists">
+
+  <label for="artist_id">Select an exhibit:</label>
+  <select id="artist_id" name="artist_id" >
+    <% @exhibits.each do |exhibit| %>
+    <option value="<%= exhibit.artist.id %>"><%= exhibit.title %></option>
+    <% end %>
+  </select>
+
+  <input type='submit' value="Search"/>
+
+</form>
+<form method="get" action="/artists">
+
+  <input type='submit' value="Reset"/>
+
+</form>
+
+<ul>
+  <% @artists.each do |artist| %>
+  <li>First Name: <%= artist.first_name %></li>
+  <br>
+  <li>Last Name: <%= artist.last_name %></li>
+  <br>
+  <li>Biography: <p><%= artist.bio %></li>
+    <br>
+    <li>Exhibits: <% if artist.exhibits.count > 0 %>
+      <% artist.exhibits.each do |exhibit| %>
+      <p>
+        <a href="/exhibits/<%= exhibit.id %>"><%= exhibit.title %></a>
+        <% end %>
+      </p>
+      <% else %>
+      <p>none</p>
+      <% end %>
+      <hr />
+      <% end %>
+    </li>
+  </ul>

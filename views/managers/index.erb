@@ -29,3 +29,18 @@
       <hr />
       <% end %>
     </ul>
+
+    <h2>Categories</h2>
+    <p class="btn--wrapper">
+      <a class="btn btn--action" href="/categories/new">New Category</a></p>
+      <ul>
+        <% @categories.each do |category| %>
+        <li> <%= category.name %> <a href="/categories/<%= category.id %>/edit">Edit</a>
+          <form method="post" action="/categories/<%= category.id %>/delete">
+            <input id='hidden' type='hidden' name='_method' value='delete'/>
+            <input type='submit' value='Delete'/>
+          </form>
+        </li>
+        <hr />
+        <% end %>
+      </ul>

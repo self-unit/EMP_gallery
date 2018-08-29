@@ -10,7 +10,11 @@
 
 
   <label for="category">Select a genre:</label>
-  <input id="category" type="text" name="category" />
+  <select id="category" name="category_id" >
+    <% @categories.each do |category| %>
+    <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select>
 
   <label for="artist">Select an artist:</label>
   <select id="artist_id" name="artist_id" >

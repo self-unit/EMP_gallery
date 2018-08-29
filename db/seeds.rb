@@ -1,8 +1,10 @@
 require_relative("../models/artist.rb")
+require_relative("../models/category.rb")
 require_relative("../models/exhibit.rb")
 require("pry-byebug")
 
 Exhibit.delete_all
+Category.delete_all
 Artist.delete_all
 
 artist1 = Artist.new({
@@ -67,16 +69,59 @@ artist8 = Artist.new({
 artist8.save()
 
 artist9 = Artist.new({
-  "first_name" => "The Internet",
+  "first_name" => "The",
+  "last_name" => "Internet",
   "bio" => "The Internet is an American band from Los Angeles, California. It currently consists of Syd, Matt Martians, Patrick Paige II, Christopher Smith, and Steve Lacy. They have released four studio albums and three extended plays since their formation in late 2011."
   })
 
 artist9.save()
 
+category1 = Category.new({
+  "name" => "IndieDisco"
+  })
+
+category1.save()
+
+category2 = Category.new({
+  "name" => "Jazz"
+  })
+
+category2.save()
+
+category3 = Category.new({
+  "name" => "Funk/Soul"
+  })
+
+category3.save()
+
+category4 = Category.new({
+  "name" => "Electronica"
+  })
+
+category4.save()
+
+category5 = Category.new({
+  "name" => "IDM"
+  })
+
+category5.save()
+
+category6 = Category.new({
+  "name" => "Bass"
+  })
+
+category6.save()
+
+category7 = Category.new({
+  "name" => "R&B/HipHop"
+  })
+
+category7.save()
+
 exhibit1 = Exhibit.new({
   "artist_id" => artist1.id,
   "title" => "Jaigantic (Galimatias Remix)",
-  "category" => "Disney IndieDisco",
+  "category_id" => category1.id,
   "date_made" => "2014-10-06",
   "link" => "https://www.youtube-nocookie.com/embed/m_FhqLYf7jg?"
   })
@@ -86,7 +131,7 @@ exhibit1.save()
 exhibit2 = Exhibit.new({
   "artist_id" => artist2.id,
   "title" => "Métropole",
-  "category" => "Electric Jazz",
+  "category_id" => category2.id,
   "date_made" => "2017-06-23",
   "link" => "https://www.youtube-nocookie.com/embed/coYGq3Ptxcw?"
   })
@@ -96,7 +141,7 @@ exhibit2.save()
 exhibit3 = Exhibit.new({
   "artist_id" => artist3.id,
   "title" => "Can't Live Without Your Love",
-  "category" => "Funk",
+  "category_id" => category3.id,
   "date_made" => "2013-09-06",
   "link" => "https://www.youtube-nocookie.com/embed/KGcPphVHuU0?"
   })
@@ -106,7 +151,7 @@ exhibit3.save()
 exhibit4 = Exhibit.new({
   "artist_id" => artist4.id,
   "title" => "Foley Room",
-  "category" => "Found Sound/Footwork",
+  "category_id" => category4.id,
   "date_made" => "2007-03-05",
   "link" => "https://www.youtube-nocookie.com/embed/4LZWaMEFUR4?"
   })
@@ -116,7 +161,7 @@ exhibit4.save()
 exhibit5 = Exhibit.new({
   "artist_id" => artist5.id,
   "title" => "Come On You Slags",
-  "category" => "Electronic/IDM",
+  "category_id" => category5.id,
   "date_made" => "1995-04-24",
   "link" => "https://www.youtube-nocookie.com/embed/wbJq2aANCyQ?"
   })
@@ -126,7 +171,7 @@ exhibit5.save()
 exhibit6 = Exhibit.new({
   "artist_id" => artist6.id,
   "title" => "plyPhon",
-  "category" => "Algorithmic/IDM",
+  "category_id" => category5.id,
   "date_made" => "2008-01-29",
   "link" => "https://www.youtube-nocookie.com/embed/acuwRHIWL_o?"
   })
@@ -136,7 +181,7 @@ exhibit6.save()
 exhibit7 = Exhibit.new({
   "artist_id" => artist7.id,
   "title" => "If This Is Love",
-  "category" => "Electric Soul",
+  "category_id" => category3.id,
   "date_made" => "2016-10-13",
   "link" => "https://www.youtube-nocookie.com/embed/glowhhXwNeQ?"
   })
@@ -146,7 +191,7 @@ exhibit7.save()
 exhibit8 = Exhibit.new({
   "artist_id" => artist8.id,
   "title" => "Ceremony",
-  "category" => "AquaCrunk",
+  "category_id" => category6.id,
   "date_made" => "2017-04-07",
   "link" => "https://www.youtube-nocookie.com/embed/2m2lEprDrfo?"
   })
@@ -156,7 +201,7 @@ exhibit8.save()
 exhibit9 = Exhibit.new({
   "artist_id" => artist9.id,
   "title" => "Get Away",
-  "category" => "R&B/HipHop",
+  "category_id" => category7.id,
   "date_made" => "2015-06-26",
   "link" => "https://www.youtube-nocookie.com/embed/z32HJ7PHnKY?"
   })

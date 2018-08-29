@@ -3,34 +3,34 @@ require_relative('../db/sql_runner.rb')
 class Exhibit
 
   attr_reader :id
-  attr_accessor :artist_id, :title, :category, :date_made, :link
+  attr_accessor :artist_id, :title, :category_id, :date_made, :link
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @artist_id = options['artist_id'].to_i
     @title = options['title']
-    @category = options['category']
+    @category_id = options['category_id'].to_i
     @date_made = options['date_made']
     @link = options['link']
   end
 
   def save
     sql = "INSERT INTO exhibits
-    (artist_id, title, category, date_made, link)
+    (artist_id, title, category_id, date_made, link)
     VALUES
     ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@artist_id, @title, @category, @date_made, @link]
+    values = [@artist_id, @title, @category_id, @date_made, @link]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
 
   def edit
     sql = "UPDATE exhibits
-    SET (artist_id, title, category, date_made, link) =
+    SET (artist_id, title, category_id, date_made, link) =
     ($1, $2, $3, $4, $5)
     WHERE id = ($6)"
-    values = [@artist_id, @title, @category, @date_made, @link, @id]
+    values = [@artist_id, @title, @category_id, @date_made, @link, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -40,6 +40,14 @@ class Exhibit
     values = [@artist_id]
     returned_array = SqlRunner.run(sql, values)
     return Artist.new( returned_array[0] )
+  end
+
+  def category
+    sql = "SELECT * FROM categories
+    WHERE id = $1"
+    values = [@category_id]
+    returned_array = SqlRunner.run(sql, values)
+    return Category.new( returned_array[0] )
   end
 
   def delete
@@ -61,21 +69,21 @@ class Exhibit
     WHERE id = $1"
     values = [id]
     returned_array = SqlRunner.run(sql, values)
-    return Exhibit.new( returned_array.first )
+    return Exhibit.new( returned_array[0] )
   end
 
-  def self.find_by_category(category)
+  def self.find_by_category(category_id)
     sql = "SELECT * FROM exhibits
-    WHERE category = $1"
-    values = [category]
+    WHERE category_id = $1"
+    values = [category_id]
     returned_array = SqlRunner.run(sql, values)
     return returned_array.map { |exhibit| Exhibit.new( exhibit ) }
   end
 
-  def self.find_by_artist(id)
+  def self.find_by_artist(artist_id)
     sql = "SELECT * FROM exhibits
     WHERE artist_id = $1"
-    values = [id]
+    values = [artist_id]
     returned_array = SqlRunner.run(sql, values)
     return returned_array.map { |exhibit| Exhibit.new( exhibit ) }
   end

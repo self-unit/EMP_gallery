@@ -3,25 +3,42 @@ require('sinatra/contrib/all')
 require('pry-byebug')
 require_relative('../models/artist.rb')
 require_relative('../models/exhibit.rb')
+require_relative('../models/category.rb')
 also_reload('../models/*')
 
 #INDEX OF EXHIBITS
 get '/exhibits' do
-  @exhibits = Exhibit.all
+  @artists = Artist.all
+  @categories = Category.all
+  if (params['category_id'])
+    @exhibits = Exhibit.find_by_category(params['category_id'])
+  elsif (params['artist_id'])
+    @exhibits = Exhibit.find_by_artist(params['artist_id'])
+  else
+    @exhibits = Exhibit.all
+  end
   erb( :"exhibits/index" )
 end
 
 #NEW EXHIBIT
 get '/exhibits/new' do
   @artists = Artist.all
+  @categories = Category.all
   erb( :"exhibits/new" )
 end
 
-#CREATE ARTIST
+#CREATE EXHIBIT
 post '/exhibits' do
   create_exhibit = Exhibit.new(params)
   create_exhibit.save()
   redirect to '/managers'
+end
+
+#SEARCH EXHIBITS BY CATEGORY
+get '/exhibits/category' do
+  @artists = Artist.all
+  @exhibits = Exhibit.find_by_category(params['category'])
+  erb( :"visitors/index" )
 end
 
 #SHOW EXHIBIT
@@ -33,7 +50,7 @@ end
 #EDIT EXHIBIT
 get '/exhibits/:id/edit' do
   @exhibit = Exhibit.find(params['id'].to_i)
-  @exhibits = Exhibit.all
+  @categories = Category.all
   @artists = Artist.all
   erb( :"exhibits/edit" )
 end
@@ -50,21 +67,4 @@ delete '/exhibits/:id/delete' do
   delete_exhibit = Exhibit.find(params['id'].to_i)
   delete_exhibit.delete()
   redirect to '/managers'
-end
-
-#SEARCH EXHIBITS BY CATEGORY
-get '/exhibits/category' do
-  exhibits = Exhibit.all
-  exhibits.find_by_category(params)
-  erb( :"exhibits/category" )
-end
-
-#SEARCH EXHIBITS BY ARTIST
-get '/exhibits/artist' do
-  erb( :"exhibits/artist" )
-end
-
-#SEARCH EXHIBITS BY DATE
-get '/exhibits/date' do
-  erb( :"exhibits/date" )
 end

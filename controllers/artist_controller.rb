@@ -3,11 +3,17 @@ require('sinatra/contrib/all')
 require('pry-byebug')
 require_relative('../models/artist.rb')
 require_relative('../models/exhibit.rb')
+require_relative('../models/category.rb')
 also_reload('../models/*')
 
 #INDEX OF ARTISTS
 get '/artists' do
-  @artists = Artist.all
+  @exhibits = Exhibit.all
+  if (params['artist_id'])
+    @artists = Artist.find(params['artist_id'])
+  else
+    @artists = Artist.all
+  end
   erb( :"artists/index" )
 end
 
@@ -25,13 +31,13 @@ end
 
 #SHOW ARTIST
 get '/artists/:id' do
-  @artist = Artist.find(params['id'].to_i)
+  @artist = Artist.find(params['id'].to_i)[0]
   erb( :"artists/show" )
 end
 
 #EDIT ARTIST
 get '/artists/:id/edit' do
-  @artist = Artist.find(params['id'].to_i)
+  @artist = Artist.find(params['id'].to_i)[0]
   @exhibits = Exhibit.all
   erb( :"artists/edit" )
 end
@@ -45,17 +51,7 @@ end
 
 #DELETE ARTIST
 delete '/artists/:id/delete' do
-  delete_artist = Artist.find(params['id'].to_i)
+  delete_artist = Artist.find(params['id'].to_i)[0]
   delete_artist.delete()
   redirect to '/managers'
-end
-
-#SEARCH ARTISTS BY NAME
-get '/artists/name' do
-  erb( :"artists/name" )
-end
-
-#SEARCH ARTISTS BY EXHIBIT
-get '/artists/exhibit' do
-  erb( :"artists/exhibit" )
 end
