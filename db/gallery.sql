@@ -7,7 +7,8 @@ CREATE TABLE artists
   id SERIAL4 primary key,
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255),
-  bio TEXT NOT NULL
+  bio TEXT NOT NULL,
+  link VARCHAR(255)
 );
 
 CREATE TABLE categories

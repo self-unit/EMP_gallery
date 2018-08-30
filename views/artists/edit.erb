@@ -5,11 +5,13 @@
 
 
   <label for="last-name">Last Name:</label>
-  <input id="last-name" type="text" name="last_name" value="<%= @artist.last_name %>"/>
+  <input id="last-name" type="text" name="last_name" value="<%= @artist.last_name %>" />
 
+  <label for="link">Insert picture link:</label>
+  <input id="link" type="text" name="link" value="<%= @artist.link %>" />
 
-  <label for="input-biography">Write a biography:</label>
-  <input id="input-biography" type="textarea" name="bio" value="<%= @artist.bio %>"/>
+  <label for="bio">Write a biography:</label>
+  <textarea id="bio" name="bio" maxlength="1000"><%= @artist.bio %></textarea>
 
   <input type='submit' value="Amend artist details"/>
 

@@ -25,6 +25,7 @@
 <ul class="grid-wrapper">
   <% @artists.each do |artist| %>
   <li class="list-items">Name: <a href="/artists/<%= artist.id %>"><%= artist.full_name %></a>
+    <img width="200" height="200" src="<%= artist.link %>"/>
   </li>
     <br>
     <% end %>
