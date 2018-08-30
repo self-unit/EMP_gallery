@@ -1,0 +1,29 @@
+.btn {
+  position: relative;
+  border:0px none;
+  padding: 8px 12px;
+  background-color: #84BCDA;
+  cursor:pointer;
+  font-family: 'Nova Mono', monospace;
+}
+
+.btn--action {
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+
+.btn--action:hover {
+  background-color: #ECC30B;
+  color: black;
+}
+
+.btn--action:active {
+  top: 2px;
+  background-color: #ECC30B;
+  color: black;
+}
+
+.btn--wrapper {
+  margin: 15px 0px 10px 0px;
+}

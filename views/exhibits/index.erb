@@ -1,5 +1,6 @@
-<h2>Exhibits</h2>
-<h3>Filter by genres</h3>
+<h3>Filter by genres or artists</h3>
+<br>
+<div class="forms">
 <form method="get" action="/exhibits">
 
   <label for="catgeory_id">Select a genre:</label>
@@ -12,6 +13,7 @@
   <input type='submit' value="Search"/>
 
 </form>
+<br>
 <form method="get" action="/exhibits">
 
   <label for="artist_id">Select an artist:</label>
@@ -29,19 +31,12 @@
   <input type='submit' value="Reset"/>
 
 </form>
+<div>
+<br>
 
-<ul>
+<ul class="grid-wrapper">
   <% @exhibits.each do |exhibit| %>
-  <li>Title: <%= exhibit.title %></li>
-  <br>
-  <li>Category: <%= exhibit.category.name %></li>
-  <br>
-  <li>Date Released: <%= exhibit.date_made %></li>
-  <br>
-  <li>By Artist: <a href="/artists/<%= exhibit.artist_id %>"><%= exhibit.artist.full_name %></a></li>
-  <br>
-  <li>Video: </li><iframe width="560" height="315" src="<%= exhibit.link %>rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  <br>
-  <hr />
+  <li class="list-items">Title: <a href="/exhibits/<%= exhibit.id %>"><%= exhibit.title %></a><br>
+  <iframe width="200" height="200" src="<%= exhibit.link %>rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></li>
   <% end %>
 </ul>

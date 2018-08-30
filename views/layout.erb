@@ -2,21 +2,35 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="/reset.css">
-  <link rel="stylesheet" href="/style.css">
-  <title>Experience Music Project: Gallery</title>
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/buttons.css">
+  <link rel="icon" type="image/jpeg" href="images/myicon.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Carme|Jura|Gugi|Nova+Mono" rel="stylesheet">
+  <title>E.M.P: Gallery</title>
 </head>
-<nav>
-  <ul>
-    <li>
-      <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/managers">Managers</a>
-    </li>
-  </ul>
-</nav>
 <body>
-  <%= yield %>
+  <div class="header">
+    <header><mark>E.M.P: Gallery</mark><span class="blinking">_</span></header><a href="/managers">Managers</a>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/artists">Artists</a>
+      </li>
+      <li>
+        <a href="/exhibits">Exhibits</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <%= yield %>
+  </div>
 </body>
+<div class="footer">&copy J/H 2018</div>
 </html>

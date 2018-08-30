@@ -1,14 +1,10 @@
-<h2>Exhibit details: </h2>
+<h3>Exhibit details: </h3>
 
 <ul>
   <li>Title: <%= @exhibit.title %></li>
-  <br>
   <li>Category: <%= @exhibit.category.name %></li>
-  <br>
   <li>Date Released: <%= @exhibit.date_made %></li>
-  <br>
   <li>By Artist: <a href="/artists/<%= @exhibit.artist_id %>"><%= @exhibit.artist.full_name %></a></li>
-  <br>
   <li>Video: </li><iframe width="560" height="315" src="<%= @exhibit.link %>rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   <br>
 </ul>

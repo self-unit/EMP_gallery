@@ -1,8 +1,162 @@
-iframe {
-    border: 1px solid black;
-    width: 100%;
+h1, h2, h3 {
+  font-family: 'Jura', sans-serif;
+  color: #FF007F;
 }
 
-.output {
-    background: #eee;
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-family: 'Jura', sans-serif;
+  font-size: 1.5em;
+  color: #FF007F;
+}
+
+body {
+  font-family: 'Jura', sans-serif;
+}
+
+a {
+  font-style: bold;
+  color: #ECC30B;
+}
+
+a:hover a:active {
+  color: #F7FF58;
+}
+
+p {
+  font-family: 'Jura', sans-serif;
+}
+
+li {
+  font-family: 'Jura', sans-serif;
+}
+
+mark {
+  background-color: #1E1E24;
+  color: #FF007F;
+}
+
+.blinking {
+  -webkit-animation: 1s blink step-end infinite;
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #FF007F;
+  }
+}
+
+.header {
+  display: flex;
+  order: 0;
+  font-family: 'Jura', sans-serif;
+  color: #FF007F;
+  background-color: white;
+  font-size: 3em;
+  text-align: center;
+  padding: .5em;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.header a:active {
+  color: #FF007F;
+}
+
+.nav {
+  order: 1;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #84BCDA;
+  color: #ECC30B;
+}
+
+.nav li a {
+  font-family: 'Nova Mono', monospace;
+  position: relative;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  padding-right: 30px;
+  padding-left: 30px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  background-color: #ECC30B;
+  color: black;
+}
+
+.nav li a:active {
+  top: 2px;
+  background-color: #ECC30B;
+  color: black;
+}
+
+.main {
+  order: 2;
+  flex-direction: row;
+  background-color: #EDF2F4;
+  padding: 1em;
+}
+
+.options {
+  order: 2;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-direction: row;
+  padding: 1em;
+  overflow: scroll;
+}
+
+.list-items {
+  width: 17em;
+  text-align: center;
+  padding: .5em;
+}
+
+.footer {
+  order: 3;
+  font-family: 'Nova Mono', monospace;
+  flex-direction: row;
+  background-color: #1E1E24;
+  text-align: center;
+  padding: 1em;
+  color: white;
 }
