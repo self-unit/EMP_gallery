@@ -1,9 +1,8 @@
 require('sinatra')
-require('sinatra/contrib/all')
+require('sinatra/contrib/all') if development ?
 require_relative('../models/artist.rb')
 require_relative('../models/exhibit.rb')
 require_relative('../models/category.rb')
-also_reload('../models/*')
 
 #INDEX OF EXHIBITS
 get '/exhibits' do
