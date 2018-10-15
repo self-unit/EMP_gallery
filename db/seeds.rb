@@ -1,7 +1,6 @@
 require_relative("../models/artist.rb")
 require_relative("../models/category.rb")
 require_relative("../models/exhibit.rb")
-require("pry-byebug")
 
 Exhibit.delete_all
 Category.delete_all
@@ -287,5 +286,4 @@ exhibit16 = Exhibit.new({
 
 exhibit16.save()
 
-binding.pry
 nil
