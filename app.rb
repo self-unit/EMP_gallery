@@ -1,9 +1,9 @@
 require('sinatra')
 require('sinatra/contrib/all') if development ?
-require_relative('controllers/manager_controller.rb')
-require_relative('controllers/artist_controller.rb')
-require_relative('controllers/exhibit_controller.rb')
-require_relative('controllers/category_controller.rb')
+require_relative('./controllers/manager_controller.rb')
+require_relative('./controllers/artist_controller.rb')
+require_relative('./controllers/exhibit_controller.rb')
+require_relative('./controllers/category_controller.rb')
 
 get '/' do
   @artists = Artist.all
